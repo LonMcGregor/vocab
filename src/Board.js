@@ -21,7 +21,7 @@ class Board extends Component {
                 <React.Fragment>
                     {
                         v.choices.map(choice => (
-                            <Answer key={choice} word={choice} />
+                            <Answer key={choice} word={choice} isCorrect={choice===v.answer}/>
                         ))
                     }
                 </React.Fragment>

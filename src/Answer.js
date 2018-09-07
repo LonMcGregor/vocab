@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 
 class Answer extends Component {
     render() {
+        const className = "answer " + (this.props.isCorrect ? "correct" : "");
         return (
-            <div className="answer">
+            <div className={className}>
                 {this.props.word}
             </div>
         );
@@ -13,7 +14,8 @@ class Answer extends Component {
 }
 
 Answer.propTypes = {
-    word: PropTypes.string.isRequired
+    word: PropTypes.string.isRequired,
+    isCorrect: PropTypes.bool.isRequired
 };
 
 export default Answer;
