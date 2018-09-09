@@ -9,11 +9,34 @@ class Board extends Component {
     constructor(props){
         super(props);
         this.state = {
-            vocab: new Vocab()
+            ready: false
         };
     }
 
+    componentDidMount() {
+        const v = new Vocab();
+        v.loadVocab()
+            .then(() => {
+                if(this.isCancelled){
+                    return;
+                }
+                this.setState({
+                    ready: true,
+                    vocab: v
+                });
+            });
+    }
+
+    componentWillUnmount() {
+        this.isCancelled = true;
+    }
+
     render() {
+        if(!this.state.ready){
+            return (<div className="board">
+                <span>Loading vocab...</span>
+            </div>);
+        }
         const v = this.state.vocab.nextWord();
         return (
             <div className="board">

@@ -1,13 +1,5 @@
 import Sack from "./Sack";
-
-const SchoolSubjects = [
-    ["すうがく", "Maths"],
-    ["れきし", "History"],
-    ["ちり", "Geography"],
-    ["りか", "Science"],
-    ["たいいく", "P.E."],
-    ["こくご", "Japanese"]
-];
+import CSVParser from "./CSVParser";
 
 /**
  * Shuffles array in place. ES6 version
@@ -26,7 +18,14 @@ const MAX_EXTRA_ANSWERS = 3;
 
 class Vocab {
     constructor(){
-        this.subjectSack = new Sack(SchoolSubjects);
+        this.parser = new CSVParser();
+    }
+
+    loadVocab(){
+        return this.parser.asArray("/csv/SchoolSubjects.csv")
+            .then(vocabArray => {
+                this.subjectSack = new Sack(vocabArray);
+            });
     }
 
     nextWord() {
