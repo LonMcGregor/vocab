@@ -1,11 +1,12 @@
+import Sack from "./Sack";
 
 const SchoolSubjects = [
-    "すうがく", "Maths",
-    "れきし", "History",
-    "ちり", "Geography",
-    "りか", "Science",
-    "たいいく", "P.E.",
-    "こくご", "Japanese"
+    ["すうがく", "Maths"],
+    ["れきし", "History"],
+    ["ちり", "Geography"],
+    ["りか", "Science"],
+    ["たいいく", "P.E."],
+    ["こくご", "Japanese"]
 ];
 
 /**
@@ -24,24 +25,26 @@ function shuffle(a) {
 const MAX_EXTRA_ANSWERS = 3;
 
 class Vocab {
+    constructor(){
+        this.subjectSack = new Sack(SchoolSubjects);
+    }
+
     nextWord() {
-        const random = Math.floor((Math.random() * 100) % SchoolSubjects.length);
-        const selection = SchoolSubjects[random];
-        let answerIndex = (random % 2) ? random - 1 : random + 1;
-        const answer = SchoolSubjects[(answerIndex)];
-        const unshuffledChoices = [answer];
-        for(let i = 0; i < MAX_EXTRA_ANSWERS; i++){
-            answerIndex += 2;
-            answerIndex = answerIndex % SchoolSubjects.length;
-            unshuffledChoices.push(SchoolSubjects[(answerIndex)]);
-        }
+        const foreign = Math.floor(Math.random() * 2);
+        const question = this.subjectSack.pick();
+        const unshuffledChoices = [question[foreign]];
+        const additionalChoices = this.subjectSack.peek(MAX_EXTRA_ANSWERS);
+        additionalChoices.forEach(x => {
+            unshuffledChoices.push(x[foreign]);
+        });
         const shuffledChoices = shuffle(unshuffledChoices);
         return {
-            test: selection,
-            answer: answer,
+            test: question[(foreign + 1) % 2],
+            answer: question[foreign],
             choices: shuffledChoices
         };
     }
 }
+
 
 export default Vocab;

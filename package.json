@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
-    "react-scripts": "1.1.5"
+    "react-scripts": "1.1.5",
+    "react-test-renderer": "^16.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "cover": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://lonmcgregor.github.io/vocab"
+  "homepage": "https://lonmcgregor.github.io/vocab",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/*.js"
+    ],
+    "coverageReporters": ["json", "html"]
+  }
 }
