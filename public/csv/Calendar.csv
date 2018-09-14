@@ -1,0 +1,52 @@
+﻿きょう,Today
+きのう,Yesterday
+あした,Tomorrow
+おととい,Day before Yesterday
+あちって,Day after Tomorrow
+けさ,This morning
+よる,Night
+ゆうべ,Last night
+げつようび,Mon
+かようび,Tue
+すいようび,Wed
+もくようび,Thu
+きんようび,Fri
+どようび,Sat
+にちようび,Sun
+せんしゅう,Last Week
+こんしゅう,This week
+らいしゅう,Next week
+せんせんしゅう,Week before last
+さらいしゅう,Week after next
+せんげつ,Last month
+こんげつ,This month
+らいげつ,Next month
+せんせんげつ,Month before last
+さらいげつ,Month after next
+～がつ,Month suffix
+いちがつ,Jan
+にがつ,Feb
+さんがつ,Mar
+しがつぃ,Apr
+ごがつ,May
+ろくがつ,Jun
+しちがつ,Jul
+はちがつ,Aug
+くがつ,Sep
+じゅうがつ,Oct
+じゅういちがつ,Nov
+じゅうにがつ,Dec
+きょねん,Last year
+ことし,This year
+らいねん,Next year
+おととし,Year before last
+さらいねん,Year after next
+まい~,Every - [time]
+まいにち,Day
+まいしゅう,Week
+まいつき,Month
+まいとし,Year
+ふゆ,Winter
+はる,Spring
+なつ,Summer
+あき,Autumn
