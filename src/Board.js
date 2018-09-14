@@ -3,13 +3,16 @@ import "./Board.css";
 import Flashcard from "./Flashcard";
 import Answer from "./Answer";
 import Vocab from "./Vocab";
+import StatusBar from "./StatusBar";
 
 class Board extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            ready: false
+            ready: false,
+            correct: 0,
+            total: 0
         };
     }
 
@@ -31,6 +34,14 @@ class Board extends Component {
         this.isCancelled = true;
     }
 
+    answerSelected(isCorrect){
+        this.state.vocab.nextWord();
+        this.setState({
+            correct: isCorrect ? this.state.correct+1 : this.state.correct,
+            total: this.state.total + 1
+        });
+    }
+
     render() {
         if(!this.state.ready){
             return (<div className="board">
@@ -44,10 +55,11 @@ class Board extends Component {
                 <React.Fragment>
                     {
                         v.choices.map(choice => (
-                            <Answer key={choice} word={choice} isCorrect={choice===v.answer}/>
+                            <Answer key={choice} word={choice} isCorrect={choice===v.answer} answerChosen={this.answerSelected.bind(this)} />
                         ))
                     }
                 </React.Fragment>
+                <StatusBar correct={this.state.correct} total={this.state.total} />
             </div>
         );
     }
