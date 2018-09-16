@@ -11,7 +11,7 @@ class StatusBar extends Component {
     render() {
         return (
             <footer className="statusbar">
-                <div className="tracker">Got <span>{this.props.correct}</span> correct, out of <span>{this.props.total}</span> so far</div>
+                <div className="tracker">Got <span className="correctCount">{this.props.correct}</span> correct, out of <span className="totalCount">{this.props.total}</span> so far</div>
                 <div className="info">Developed by <a href="https://github.com/LonMcGregor/vocab">LonMcGregor on GitHub</a></div>
             </footer>
         );

@@ -1,4 +1,5 @@
 import Sack from "./Sack";
+import {SackException} from "./Sack";
 
 it("construct and size properly", () => {
     const s1 = new Sack([]);
@@ -85,6 +86,14 @@ it("peek multiple properly", () => {
     expect(() => {s2.pick(7);}).toThrow();
 });
 
+it("peek fail when empty or low", () => {
+    const s = new Sack(Array.from([]));
+    expect(() => {s.peek(1);}).toThrow();
+    const s2 = new Sack(Array.from([1,2,3,4]));
+    s2.pick(2);
+    expect(() => {s2.peek(3);}).toThrow();
+});
+
 it("peek multiple properly less than full", () => {
     const expected = new Set(["a", "b", "c", "d", "e", "f"]);
     const s = new Sack(Array.from(expected));
@@ -97,4 +106,9 @@ it("peek multiple properly less than full", () => {
             expect(expected.has(x)).toEqual(true);
         });
     }
+});
+
+it("sack fail error constructs", () => {
+    const s = new SackException("haemoglobin");
+    expect(s.toString()).toEqual("Sack Exception: haemoglobin");
 });

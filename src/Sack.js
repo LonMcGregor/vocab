@@ -1,4 +1,4 @@
-class SackException {
+export class SackException {
     constructor(msg){
         this.msg = msg;
     }
