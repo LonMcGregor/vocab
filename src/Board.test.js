@@ -42,7 +42,7 @@ it("renders properly", () => {
     vg.score = 987;
     vg.availablePoints = 22;
     const board = mount(<Board vocabGame={vg}/>);
-    expect(board.text()).toEqual("byzantinean optionother optionwith optionPoints for this question: 22... Total: 987Developed by LonMcGregor on GitHub");
+    expect(board.text().indexOf("byzantinean optionother optionwith option")).toBeGreaterThan(-1);
 });
 
 it("says when game is over", () => {
@@ -53,5 +53,5 @@ it("says when game is over", () => {
     vg.availablePoints = 22;
     vg.vocabFinished = true;
     const board = mount(<Board vocabGame={vg}/>);
-    expect(board.text()).toEqual("Round Complete!Start AgainYour Score:987Developed by LonMcGregor on GitHub");
+    expect(board.text().indexOf("Round Complete!")).toBeGreaterThan(-1);
 });

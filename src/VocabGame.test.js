@@ -262,3 +262,12 @@ it("nothing if answer when no choices available", () => {
     const vg = new VocabGame();
     expect(vg.selectAnswer(2)).toBeUndefined();
 });
+
+it("remembers the selected vocab", async () => {
+    const vg = new VocabGame();
+    fetch.resetMocks();
+    fetch.mockResponse(mockInput);
+    expect(vg.vocabSelection).toBe("jp/SchoolSubjects.csv");
+    await vg.setVocab("stuff");
+    expect(vg.vocabSelection).toBe("stuff");
+});

@@ -1,5 +1,6 @@
 import Vocab from "./Vocab";
 import CSVParser from "./CSVParser";
+import {defaultVocab} from "./AvailableVocab";
 
 export default class VocabGame{
     constructor(){
@@ -9,6 +10,7 @@ export default class VocabGame{
         this.choices = [];
         this.score = 0;
         this.availablePoints = 0;
+        this.vocabSelection = defaultVocab;
     }
 
     _gameLoaded(){
@@ -21,7 +23,9 @@ export default class VocabGame{
     }
 
     setVocab(uri){
-        return this._csvp.asArray(uri)
+        this.ready = false;
+        this.vocabSelection = uri;
+        return this._csvp.asArray(this.vocabSelection)
             .then(vocabArray => {
                 this._vocab = new Vocab(vocabArray, 3);
                 this.challenge = "";

@@ -6,6 +6,7 @@ import StatusBar from "./StatusBar";
 import VocabGame from "./VocabGame";
 import PropTypes from "prop-types";
 import GameOverScreen from "./GameOverScreen";
+import VocabSelector from "./VocabSelector";
 
 class Board extends Component {
 
@@ -14,8 +15,13 @@ class Board extends Component {
         document.addEventListener("vocabGameLoad", this.gameLoaded.bind(this));
         this.state = {vocabGame: props.vocabGame};
         if(!this.state.vocabGame.ready){
-            this.state.vocabGame.setVocab("/csv/SchoolSubjects.csv");
+            this.state.vocabGame.setVocab(this.state.vocabGame.vocabSelection);
         }
+    }
+
+    vocabSelected(selection){
+        this.state.vocabGame.setVocab(selection);
+        this.forceUpdate();
     }
 
     gameLoaded(){
@@ -56,6 +62,7 @@ class Board extends Component {
                         ))
                     }
                 </React.Fragment>
+                <VocabSelector changed={this.vocabSelected.bind(this)} selection={this.state.vocabGame.vocabSelection} />
                 <StatusBar pointsAvailable={this.state.vocabGame.availablePoints} total={this.state.vocabGame.score} />
             </div>
         );
