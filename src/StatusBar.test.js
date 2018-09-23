@@ -6,7 +6,7 @@ import StatusBar from "./StatusBar";
 configure({ adapter: new Adapter() });
 
 it("renders correctly", () => {
-    const sb = mount(<StatusBar correct={22} total={33} />);
-    expect(sb.find(".correctCount").text()).toEqual("22");
+    const sb = mount(<StatusBar pointsAvailable={22} total={33} />);
+    expect(sb.find(".pointsAvailable").text()).toEqual("22");
     expect(sb.find(".totalCount").text()).toEqual("33");
 });

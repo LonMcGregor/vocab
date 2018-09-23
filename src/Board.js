@@ -2,67 +2,72 @@ import React, { Component } from "react";
 import "./Board.css";
 import Flashcard from "./Flashcard";
 import Answer from "./Answer";
-import Vocab from "./Vocab";
 import StatusBar from "./StatusBar";
+import VocabGame from "./VocabGame";
+import PropTypes from "prop-types";
+import GameOverScreen from "./GameOverScreen";
 
 class Board extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            ready: false,
-            correct: 0,
-            total: 0
-        };
+        document.addEventListener("vocabGameLoad", this.gameLoaded.bind(this));
+        this.state = {vocabGame: props.vocabGame};
+        if(!this.state.vocabGame.ready){
+            this.state.vocabGame.setVocab("/csv/SchoolSubjects.csv");
+        }
     }
 
-    componentDidMount() {
-        const v = new Vocab();
-        v.loadVocab()
-            .then(() => {
-                if(this.isCancelled){
-                    return;
-                }
-                this.setState({
-                    ready: true,
-                    vocab: v
-                });
-            });
+    gameLoaded(){
+        this.state.vocabGame.nextQuestion();
+        this.forceUpdate();
     }
 
-    componentWillUnmount() {
-        this.isCancelled = true;
+    answerSelected(choiceId){
+        if(this.state.vocabGame.selectAnswer(choiceId)){
+            this.state.vocabGame.nextQuestion();
+        }
+        this.forceUpdate();
     }
 
-    answerSelected(isCorrect){
-        this.state.vocab.nextWord();
-        this.setState({
-            correct: isCorrect ? this.state.correct+1 : this.state.correct,
-            total: this.state.total + 1
-        });
+    gameComplete(){
+        this.state.vocabGame.restartVocab();
+        this.state.vocabGame.resetScore();
+        this.state.vocabGame.nextQuestion();
+        this.forceUpdate();
     }
 
     render() {
-        if(!this.state.ready){
+        if(!this.state.vocabGame.ready){
             return (<div className="board">
-                <span>Loading vocab...</span>
+                <span>Loading...</span>
             </div>);
         }
-        const v = this.state.vocab.nextWord();
+        if(this.state.vocabGame.vocabFinished){
+            return (<GameOverScreen restart={this.gameComplete.bind(this)} total={this.state.vocabGame.score} />);
+        }
         return (
             <div className="board">
-                <Flashcard word={v.test}/>
+                <Flashcard word={this.state.vocabGame.challenge}/>
                 <React.Fragment>
                     {
-                        v.choices.map(choice => (
-                            <Answer key={choice} word={choice} isCorrect={choice===v.answer} answerChosen={this.answerSelected.bind(this)} />
+                        this.state.vocabGame.choices.map(choice => (
+                            <Answer key={choice.id} selected={choice.selected} word={choice.value} isCorrect={choice.isCorrect} answerChosen={this.answerSelected.bind(this, choice.id)} />
                         ))
                     }
                 </React.Fragment>
-                <StatusBar correct={this.state.correct} total={this.state.total} />
+                <StatusBar pointsAvailable={this.state.vocabGame.availablePoints} total={this.state.vocabGame.score} />
             </div>
         );
     }
 }
+
+Board.propTypes = {
+    vocabGame: PropTypes.instanceOf(VocabGame)
+};
+
+Board.defaultProps = {
+    vocabGame: new VocabGame()
+};
 
 export default Board;

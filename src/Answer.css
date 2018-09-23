@@ -3,10 +3,16 @@
     margin: 2px;
 }
 
-.answer:hover {
+.answer.incorrect:hover {
     color: red;
 }
 
 .answer.correct:hover {
     color: yellow;
+}
+
+.answer.incorrect.selected {
+    text-decoration-line: line-through;
+    opacity: 0.5;
+    pointer-events: none;
 }

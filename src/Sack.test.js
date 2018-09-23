@@ -40,7 +40,7 @@ it("reshuffle properly", () => {
     const out = s.pick();
     expect(s.size()).toEqual(2);
     expect(s.size(true)).toEqual(1);
-    expect(s.peek()).toEqual(out===1 ? 2 : 1);
+    expect(s.peekRemaining()).toEqual(out===1 ? 2 : 1);
     s.reshuffle();
     expect(s.size()).toEqual(2);
     expect(s.size(true)).toEqual(2);
@@ -72,12 +72,12 @@ it("pick all properly", () => {
     expect(() => {s.pick();}).toThrow();
 });
 
-it("peek multiple properly", () => {
+it("peek remaining multiple properly", () => {
     const expected = new Set(["a", "b", "c", "d", "e", "f"]);
     const s = new Sack(Array.from(expected));
     const picked = s.pick();
     expected.delete(picked);
-    const peeked = s.peek(5);
+    const peeked = s.peekRemaining(5);
     expect(peeked.length).toEqual(5);
     expect(peeked).toEqual(expect.arrayContaining(Array.from(expected)));
     expect(s.pick(5)).toEqual(expect.arrayContaining(Array.from(expected)));
@@ -86,21 +86,21 @@ it("peek multiple properly", () => {
     expect(() => {s2.pick(7);}).toThrow();
 });
 
-it("peek fail when empty or low", () => {
+it("peek remaining fail when empty or low", () => {
     const s = new Sack(Array.from([]));
-    expect(() => {s.peek(1);}).toThrow();
+    expect(() => {s.peekRemaining(1);}).toThrow();
     const s2 = new Sack(Array.from([1,2,3,4]));
     s2.pick(2);
-    expect(() => {s2.peek(3);}).toThrow();
+    expect(() => {s2.peekRemaining(3);}).toThrow();
 });
 
-it("peek multiple properly less than full", () => {
+it("peek remaining multiple properly less than full", () => {
     const expected = new Set(["a", "b", "c", "d", "e", "f"]);
     const s = new Sack(Array.from(expected));
     const picked = s.pick();
     expected.delete(picked);
     for(var i = 0; i < 6; i++){
-        const peeked = s.peek(4);
+        const peeked = s.peekRemaining(4);
         expect(peeked.length).toEqual(4);
         peeked.forEach(x => {
             expect(expected.has(x)).toEqual(true);
@@ -111,4 +111,19 @@ it("peek multiple properly less than full", () => {
 it("sack fail error constructs", () => {
     const s = new SackException("haemoglobin");
     expect(s.toString()).toEqual("Sack Exception: haemoglobin");
+});
+
+it("peeks all correctly", () => {
+    const items = new Set(["a", "b", "c", "d", "e", "f"]);
+    const s = new Sack(Array.from(items));
+    s.pick(6);
+    expect(() => {s.peekAll(7);}).toThrow();
+    const all = s.peekAll(6);
+    expect(all.length).toEqual(6);
+    const some = s.peekAll(3);
+    expect(some.length).toEqual(3);
+    const one = s.peekAll();
+    expect(Array.from(items)).toContainEqual(one);
+    const none = s.peekAll(0);
+    expect(none.length).toEqual(0);
 });
