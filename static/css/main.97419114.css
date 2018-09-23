@@ -1,0 +1,2 @@
+body{margin:0;padding:0;font-family:sans-serif}.board{border:1px solid blue;margin:2px}.flashcard{border:1px solid red;margin:2px}.answer{border:1px solid green;margin:2px}.answer.incorrect:hover{color:red}.answer.correct:hover{color:#ff0}.answer.incorrect.selected{-webkit-text-decoration-line:line-through;text-decoration-line:line-through;opacity:.5;pointer-events:none}.statusbar{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;padding:2px}button.restart{width:200px;height:100px}
+/*# sourceMappingURL=main.97419114.css.map*/
