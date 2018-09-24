@@ -7,7 +7,6 @@ export const vocabs = [
     "jp/Nature.csv",
     "jp/Particles.csv",
     "jp/People.csv",
-    "jp/PoliteConversation.csv",
     "jp/SchoolSubjects.csv",
     "jp/Town.csv"
 ];
