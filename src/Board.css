@@ -1,4 +1,44 @@
 .board {
-    border: 1px solid blue;
-    margin: 2px;
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+/* not wide */
+.board {
+    grid-template-columns: [main] 1fr;
+    grid-template-rows: [top] 3fr [mid] 5fr [foot1] 1fr [foot2] 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.board .choices {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+}
+
+/* wide screen */
+@media (min-aspect-ratio: 1/1) {
+    .board {
+        grid-template-columns: [left] 4fr [right] 6fr;
+        grid-template-rows: [top] 9fr [bot] 1fr;
+    }
+}
+
+/* fonts for wide screens */
+@media (min-aspect-ratio: 1/1) {
+    * {
+        font-size: 6vh;
+    }
+}
+
+/* fonts for tall screens */
+@media (max-aspect-ratio: 1/1) {
+    * {
+        font-size: 6vw;
+    }
 }

@@ -1,14 +1,10 @@
 .answer {
-    border: 1px solid green;
-    margin: 2px;
+    box-shadow: inset 0 0 50vh var(--a2fg);
 }
 
-.answer.incorrect:hover {
-    color: red;
-}
-
-.answer.correct:hover {
-    color: yellow;
+.answer:hover {
+    box-shadow: inset 0 0 50vh var(--a2bg);
+    cursor: pointer;
 }
 
 .answer.incorrect.selected {

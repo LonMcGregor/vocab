@@ -10,17 +10,15 @@ class VocabSelector extends Component {
 
     render() {
         return (
-            <div>
-                <select name="selectedVocab" onChange={(e)=>{this.changed(e);}} value={this.props.selection}>
-                    <React.Fragment>
-                        {
-                            vocabs.map(vocab => (
-                                <option key={vocab} value={vocab}>{vocab}</option>
-                            ))
-                        }
-                    </React.Fragment>
-                </select>
-            </div>
+            <select id="selectedVocab" name="selectedVocab" onChange={(e)=>{this.changed(e);}} value={this.props.selection}>
+                <React.Fragment>
+                    {
+                        vocabs.map(vocab => (
+                            <option key={vocab} value={vocab}>{vocab}</option>
+                        ))
+                    }
+                </React.Fragment>
+            </select>
         );
     }
 }

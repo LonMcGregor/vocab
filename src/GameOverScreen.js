@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 class GameOverScreen extends Component {
     render() {
-        return (<div>
+        return (<div className="gameOver">
             <h1>Round Complete!</h1>
             <button className="restart" onClick={this.props.restart.bind(this)}>Start Again</button>
             <p>Your Score:{this.props.total}</p>

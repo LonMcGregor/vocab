@@ -1,0 +1,71 @@
+.questionDone {
+    z-index: 1;
+    width:  100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionDone .shadow {
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background: rgba(0,0,0,0.5);
+}
+
+.questionDone .modal {
+    z-index: 3;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+    height: 80vh;
+}
+
+@keyframes next {
+    0% {
+        opacity: 0;
+        left: -20%;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: 110%;
+    }
+}
+
+.questionDone button {
+    border: 1px solid transparent;
+    padding-top: 10px;
+    border-radius: 4px;
+    background: var(--bgdim);
+    color: var(--fg);
+    cursor: pointer;
+}
+
+.questionDone button:hover {
+    box-shadow: inset 0 0 5px var(--a2bg);
+}
+
+.questionDone button:after {
+    content: ' ';
+    display: block;
+    height: 10px;
+    width: 10px;
+    background: var(--a2bg);
+    animation: 1s ease-in-out next 0s infinite;
+    position: relative;
+    left: 0px;
+}

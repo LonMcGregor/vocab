@@ -1,3 +1,15 @@
+.gameOver {
+    background: var(--bg);
+    color: var(--fg);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+.gameOver h1 {
+    margin-top: 0px;
+}
+
 button.restart {
     width: 200px;
     height: 100px;

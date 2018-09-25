@@ -1,0 +1,5 @@
+#selectedVocab {
+    border: none;
+    background: var(--bg);
+    color: var(--fg);
+}
