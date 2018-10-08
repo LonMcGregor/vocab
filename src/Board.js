@@ -79,9 +79,7 @@ class Board extends Component {
     }
 
     render() {
-        const theme = this.getStyle(); /*?
-            "--bg:black; --fg:white; --accent1fg: teal; --accent1bg: turquoise; --accent2fg: green; --accent2bg: greenyellow" :
-            "--bg:white; --fg:black; --accent1fg: turquoise; --accent1bg: teal; --accent2fg: greenyellow; --accent2bg: green";*/
+        const theme = this.getStyle();
         if(!this.state.vocabGame.ready){
             return (<div className="board" style={theme}>
                 <span>Loading...</span>
