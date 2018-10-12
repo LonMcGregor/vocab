@@ -10,7 +10,8 @@ export const vocabs = [
     "jp/Particles.csv",
     "jp/People.csv",
     "jp/SchoolSubjects.csv",
-    "jp/Town.csv"
+    "jp/Town.csv",
+    "jp/Verbs.csv"
 ];
 
 export const defaultVocab = "jp/SchoolSubjects.csv";
