@@ -3,6 +3,7 @@ export const vocabs = [
     "jp/Conversation.csv",
     "jp/Count.csv",
     "jp/Countries.csv",
+    "jp/Entertainment.csv",
     "jp/Family.csv",
     "jp/FoodDrink.csv",
     "jp/Home.csv",

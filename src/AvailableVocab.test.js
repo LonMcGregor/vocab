@@ -6,7 +6,7 @@ describe("has word, translation pairs", async () => {
     const csvp = new CSVParser();
 
     it("has the right number of vocabs available", () => {
-        expect(vocabs.length).toBe(13);
+        expect(vocabs.length).toBe(14);
     });
 
     for(let i = 0; i < vocabs.length; i++){

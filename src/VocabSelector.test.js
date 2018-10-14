@@ -7,5 +7,5 @@ configure({ adapter: new Adapter() });
 
 it("renders correctly", () => {
     const vs = mount(<VocabSelector changed={() => {}}/>);
-    expect(vs.text()).toBe("jp/Calendar.csvjp/Conversation.csvjp/Count.csvjp/Countries.csvjp/Family.csvjp/FoodDrink.csvjp/Home.csvjp/Nature.csvjp/Particles.csvjp/People.csvjp/SchoolSubjects.csvjp/Town.csvjp/Verbs.csv");
+    expect(vs.text()).toBe("jp/Calendar.csvjp/Conversation.csvjp/Count.csvjp/Countries.csvjp/Entertainment.csvjp/Family.csvjp/FoodDrink.csvjp/Home.csvjp/Nature.csvjp/Particles.csvjp/People.csvjp/SchoolSubjects.csvjp/Town.csvjp/Verbs.csv");
 });
