@@ -1,52 +1,32 @@
-﻿です,Is
-でした,Is Not
-ではありません,Was
-ではありませんでした,Was Not
-いきます,Going
-いきません,Not Going
-いきました,Did Go
-いきませんでした,Didn't Go
-いって,To Go (-te)
-いきましょう,To Go (uncertain)
-きます,Coming
-きません,Not coming
-きました,Did come
-きませんでした,Did not come
-きて,To Come (-te)
-きましょう,To Come (uncertain)
-みます,Seeing
-みません,Not Seeing
-みました,Did See
-みませんでた,Did not see
-みて,See (-te)
-みましょう,See (uncertain)
-よみます,Read
-よみません,Not Reading
-よみました,Did read
-よみませんでした,Did not read
-よんで,Read (-te)
-よみましょう,Read (uncertain)
-たべます,Eat
-たべません,Not eating
-たぺました,Ate
-たぺませんでした,Did not eat
-たべて,To eat (-te)
-たべましょう,To eat (uncertain)
-のみます,Drink
-のみません,Not Drinking
-のみました,Drank
-のみませんでした,Did not drink
-のんで,To drink (-te)
-のみましょう,To drink (uncertain)
-あります,Exists (inanimate)
-ありません,Does not exist (inanimate)
-ありました,Existed (inanimate)
-ありませんでした,Did not exist (inanimate)
-あって,Exists (inanimate) (-te)
-ありましょう,Exists (inanimate) (uncertain)
-います,Exists (animate)
-いません,Does not exist (animate)
-いました,Existed (animate)
-いませんでした,Did not exist (animate)
-いて,Exists (animate) (-te)
-いましょう,Exists (animate) (uncertain)
+﻿To Exist (animate),います
+To Exist (inanimate),あります
+To Go,いきます
+To Come,きます
+To See,みます
+To Read,よみます
+To Eat,たべます
+To Drink,のみます
+To Do,します
+To Speak,はなします
+To Hear / to Ask,ききます
+To Write,かきます
+To Buy,かいます
+To Stand,たちます
+To Sit,すわります
+To Understand,わかります
+To Exist (animate) -te,いて
+To Exist (inanimate) -te,あって
+To Go -te,いって
+To Come -te,きて
+To See -te,みて
+To Read -te,よんで
+To Eat -te,たべて
+To Drink -te,のんで
+To Do -te,して
+To Speak -te,はなして
+To Hear / to ask -te,きいて
+To Write -te,かいて
+To Buy -te,かって
+To Stand -te,たって
+To Sit -te,すわって
+To Understand -te,わかって

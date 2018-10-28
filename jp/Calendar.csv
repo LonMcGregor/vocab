@@ -6,13 +6,13 @@
 けさ,This morning
 よる,Night
 ゆうべ,Last night
-げつようび,Mon
-かようび,Tue
-すいようび,Wed
-もくようび,Thu
-きんようび,Fri
-どようび,Sat
-にちようび,Sun
+げつようび,Monday
+かようび,Tuesday
+すいようび,Wednesday
+もくようび,Thursday
+きんようび,Friday
+どようび,Saturday
+にちようび,Sunday
 せんしゅう,Last Week
 こんしゅう,This week
 らいしゅう,Next week
@@ -41,11 +41,10 @@
 らいねん,Next year
 おととし,Year before last
 さらいねん,Year after next
-まい~,Every - [time]
-まいにち,Day
-まいしゅう,Week
-まいつき,Month
-まいとし,Year
+まいにち,Every Day
+まいしゅう,Every week
+まいつき,Every month
+まいとし,Every year
 ふゆ,Winter
 はる,Spring
 なつ,Summer
