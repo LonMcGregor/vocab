@@ -3,6 +3,7 @@ export const vocabs = [
     "jp/Conversation.csv",
     "jp/Count.csv",
     "jp/Countries.csv",
+    "jp/DemonstrativeInterrogative.csv",
     "jp/Entertainment.csv",
     "jp/Family.csv",
     "jp/FoodDrink.csv",
@@ -10,6 +11,7 @@ export const vocabs = [
     "jp/Nature.csv",
     "jp/Particles.csv",
     "jp/People.csv",
+    "jp/PostPositional.csv",
     "jp/SchoolSubjects.csv",
     "jp/Town.csv",
     "jp/Verbs.csv"
