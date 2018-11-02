@@ -29,6 +29,7 @@
     ]
   },
   "devDependencies": {
-    "jest-fetch-mock": "^1.6.5"
+    "jest-fetch-mock": "^1.6.5",
+    "merge": ">=1.2.1"
   }
 }
