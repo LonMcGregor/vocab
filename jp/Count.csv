@@ -15,3 +15,44 @@
 せん,1000
 まん,10000
 おく,100000000
+ひとつ,1 thing
+ふたつ,2 things
+みっつ,3 things
+よっつ,4 things
+いつつ,5 things
+むっつ,6 things
+ななつ,7 things
+やっつ,8 things
+ここのつ,9 things
+とお,10 things
+いくつ,How many?
+ひとり,1 person
+ふたり,2 people
+～にん,~n people
+なんいん,How many people?
+～まい,~n sheets
+なんまい,How many sheets?
+～こ,~n small things
+いっこ,1 small thing
+ろっこ,6 small things
+はっこ,8 small things
+じゅっこ,10 small things
+なんこ,How many small things
+～ほん,~n cylinder things
+いっぽん,1 cylinder thing
+さんぼん,3 cylinder things
+ろっぽん,6 cylinder things
+はっぽん,8 cylinder things
+じゅっぽん,10 cylinder things
+なんぼん,How many cylinder things
+～ひき,~n animals
+いっぴき,1 animal
+さんびき,3 animals
+ろっぴき,6 animals
+はっぴき,8 animals
+じゅうぴき,10 animals
+なんびき,How many animals
+～えん,~n yen
+～さつ,~n bills*
+～だま,~n coins*
+いくら,How much (does it cost)
